@@ -9,7 +9,7 @@ Estimate: 3 points
 Priority: High
 
 Description:
-Design and implement the product data model and database schema.
+As a backend developer, I need a well-designed product data model and database schema so that the application can reliably store and manage product information.
 
 Acceptance Criteria:
 - Schema includes: id (UUID), name, sku, description, price (decimal), currency, categories (array), images (array of URLs), stock (int), active (bool), created_at, updated_at.
@@ -30,7 +30,7 @@ Estimate: 3 points
 Priority: High
 
 Description:
-Implement endpoint to create a new product.
+As an API consumer, I need an endpoint to create new products so that I can add new items to the product catalog programmatically.
 
 Acceptance Criteria:
 - POST /products accepts JSON and validates required fields.
@@ -54,7 +54,7 @@ Estimate: 2 points
 Priority: High
 
 Description:
-Implement endpoint to fetch a single product by id.
+As an API consumer, I need an endpoint to retrieve a specific product by ID so that I can fetch detailed product information.
 
 Acceptance Criteria:
 - GET /products/{id} returns 200 + product JSON when found.
@@ -76,7 +76,7 @@ Estimate: 3 points
 Priority: High
 
 Description:
-Implement update endpoint for products.
+As an API consumer, I need an endpoint to update product information so that I can modify existing product details when needed.
 
 Acceptance Criteria:
 - PUT/PATCH updates allowed fields and returns 200 with updated resource.
@@ -98,7 +98,7 @@ Estimate: 2 points
 Priority: High
 
 Description:
-Implement soft-delete behavior for products.
+As an API consumer, I need an endpoint to delete products so that I can remove items from the catalog while maintaining data integrity through soft-delete behavior.
 
 Acceptance Criteria:
 - DELETE sets soft-delete flag and returns 204.
@@ -118,7 +118,7 @@ Estimate: 2 points
 Priority: Medium
 
 Description:
-Create likes table and migration.
+As a backend developer, I need a likes table and database migration so that the system can track user likes on products.
 
 Acceptance Criteria:
 - Table columns: id, product_id (FK), user_id, created_at.
@@ -138,7 +138,7 @@ Estimate: 3 points
 Priority: Medium
 
 Description:
-Allow authenticated users to like/unlike products.
+As an authenticated user, I need endpoints to like and unlike products so that I can express my preferences and engagement with products in the catalog.
 
 Acceptance Criteria:
 - POST /products/{id}/like creates a like if none exists.
@@ -160,7 +160,7 @@ Estimate: 1 point
 Priority: Medium
 
 Description:
-Include likes_count in GET /products and GET /products/{id} responses.
+As an API consumer, I need the likes count included in product responses so that I can display engagement metrics to users.
 
 Acceptance Criteria:
 - likes_count present in product DTOs.
@@ -178,7 +178,7 @@ Estimate: 5 points
 Priority: High
 
 Description:
-Implement GET /products with pagination, sorting and filters.
+As an API consumer, I need to list products with pagination, sorting, and filtering capabilities so that users can efficiently browse and discover products.
 
 Acceptance Criteria:
 - Supports page/limit (or cursor), sorting by name/price/created_at.
@@ -199,7 +199,7 @@ Estimate: 3 points
 Priority: Medium
 
 Description:
-Implement q= query param for basic product text search.
+As an API consumer, I need a text search capability so that users can find products by searching product names and descriptions.
 
 Acceptance Criteria:
 - GET /products?q=term searches name and description.
@@ -218,7 +218,7 @@ Estimate: 2 points
 Priority: Medium
 
 Description:
-Add structured JSON logging with correlation/trace IDs.
+As a DevOps/SRE engineer, I need structured JSON logging with correlation and trace IDs so that I can effectively monitor and debug application issues in production.
 
 Acceptance Criteria:
 - Logs emitted in JSON, include timestamp, level, message, trace_id, request_id.
@@ -237,7 +237,7 @@ Estimate: 3 points
 Priority: Medium
 
 Description:
-Expose /metrics and /health endpoints.
+As a DevOps/SRE engineer, I need metrics and health check endpoints so that I can monitor application performance and availability in production.
 
 Acceptance Criteria:
 - /health returns liveness & readiness.
@@ -257,7 +257,7 @@ Estimate: 3 points
 Priority: High
 
 Description:
-Add JWT-based authentication for state-changing endpoints.
+As a security-conscious developer, I need JWT-based authentication for state-changing endpoints so that only authorized users can modify product data.
 
 Acceptance Criteria:
 - State-changing endpoints require valid JWT.
@@ -277,7 +277,7 @@ Estimate: 2 points
 Priority: Medium
 
 Description:
-Add payload validation and basic rate limiting for public endpoints.
+As a security-conscious developer, I need input validation and rate limiting so that the API is protected against malformed requests and abuse.
 
 Acceptance Criteria:
 - All inputs validated with clear messages.
@@ -297,7 +297,7 @@ Estimate: 2 points
 Priority: High
 
 Description:
-Provide Dockerfile and docker-compose for local development.
+As a developer, I need Docker support with Dockerfile and docker-compose so that I can run the service locally in a consistent environment.
 
 Acceptance Criteria:
 - Dockerfile builds image reproducibly.
@@ -317,7 +317,7 @@ Estimate: 3 points
 Priority: High
 
 Description:
-Create GitHub Actions workflow to run lint, unit tests, and build.
+As a development team, I need a CI pipeline to run tests and linting so that code quality is maintained and issues are caught early.
 
 Acceptance Criteria:
 - Workflow triggers on PRs.
@@ -336,7 +336,7 @@ Estimate: 5 points
 Priority: High
 
 Description:
-Automate deployment to a staging cluster on merge to develop/main.
+As a deployment engineer, I need automated deployment to staging so that changes are continuously delivered and tested in a production-like environment.
 
 Acceptance Criteria:
 - Merge to develop triggers build and deploy to staging.
@@ -356,7 +356,7 @@ Estimate: 5 points
 Priority: High
 
 Description:
-Provision staging infra reproducibly (DB, k8s objects, secrets).
+As an infrastructure engineer, I need infrastructure-as-code using Terraform and Helm so that the staging environment can be provisioned reproducibly.
 
 Acceptance Criteria:
 - Terraform/Helm manifests manage DB and app resources.
@@ -376,7 +376,7 @@ Estimate: 5 points
 Priority: High
 
 Description:
-Add integration tests that run against an ephemeral DB (Testcontainers or similar).
+As a QA engineer, I need comprehensive integration tests for CRUD operations so that the application functionality is verified end-to-end.
 
 Acceptance Criteria:
 - Integration tests for create/retrieve/update/delete and likes.
@@ -395,7 +395,7 @@ Estimate: 5 points
 Priority: Medium
 
 Description:
-Design and run load tests for read endpoints and report results.
+As a performance engineer, I need load testing for read endpoints so that I can ensure the system meets performance targets and identify scaling needs.
 
 Acceptance Criteria:
 - Load test plan and script (k6 or JMeter) included.
@@ -415,7 +415,7 @@ Estimate: 2 points
 Priority: High
 
 Description:
-Provide OpenAPI/Swagger documentation for all endpoints.
+As an API consumer, I need comprehensive OpenAPI documentation so that I can understand and integrate with all available endpoints.
 
 Acceptance Criteria:
 - OpenAPI spec generated.
@@ -434,7 +434,7 @@ Estimate: 1 point
 Priority: High
 
 Description:
-Create README with local dev steps and a deploy runbook for staging/prod.
+As a developer or operator, I need clear documentation with setup and deployment instructions so that I can quickly get started and deploy the application reliably.
 
 Acceptance Criteria:
 - README includes build/test/run instructions.
